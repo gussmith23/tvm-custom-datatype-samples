@@ -5,8 +5,8 @@ import nnvm.testing
 import tvm
 from tvm.contrib import graph_runtime
 
-x = tvm.placeholder((3,), name="x", dtype="mycustomtype")
-y = tvm.placeholder(x.shape, name="y", dtype="mycustomtypetwo")
+x = tvm.placeholder((3,), name="x", dtype="custom[mycustomtype]32")
+y = tvm.placeholder(x.shape, name="y", dtype="custom[mycustomtypetwo]32")
 z = tvm.compute(x.shape, lambda i: x[i] + y[i])
 
 print(z.debug_str())
