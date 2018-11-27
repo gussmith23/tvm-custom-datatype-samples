@@ -1,9 +1,4 @@
-import numpy as np
-
-import nnvm.compiler
-import nnvm.testing
 import tvm
-from tvm.contrib import graph_runtime
 
 tvm.register_datatype("foo", 23)
 tvm.register_datatype("bar", 23)
