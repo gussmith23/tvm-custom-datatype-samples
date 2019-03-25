@@ -28,8 +28,14 @@ Z = topi.cast(topi.cast(X, dtype="custom[bfloat]") + topi.cast(Y, dtype="custom[
 s = tvm.create_schedule([Z.op])
 flist = tvm.lower(s, [X,Y,Z])
 flist = [flist]
+
+#print(flist[0].body)
+#def callback(stmt):
+    #if isinstance(stmt, tvm.expr.Call):
+        #print(stmt.name + " " + stmt.dtype)
 flist = [ir_pass.LowerDatatypes(func, tgt) for func in flist]
 #print(flist[0].body)
+#tvm.ir_pass.PostOrderVisit(flist[0].body, callback)
 
 built_cast = tvm.build(flist[0], target=tgt)
 #print(built_cast.get_source())
