@@ -15,11 +15,12 @@ Unless required by applicable law or agreed to in writing, software
 #ifndef MYBFLOAT16_H
 #define MYBFLOAT16_H
 
-#include <cstdint>
 #include <cstddef>
+#include <cstdint>
 
-void FloatToBFloat16(const float* src, uint16_t* dst, size_t size);
-void BFloat16ToFloat(const uint16_t* src, float* dst, size_t size);
-void BFloat16Add(const uint16_t* a, const uint16_t* b, uint16_t* dst, size_t size);
+void FloatToBFloat16(const float *src, uint16_t *dst, size_t size);
+void BFloat16ToFloat(const uint16_t *src, float *dst, size_t size);
+void BFloat16Add(const uint16_t *a, const uint16_t *b, uint16_t *dst,
+                 size_t size);
 
 #endif
