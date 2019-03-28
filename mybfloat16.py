@@ -29,7 +29,11 @@ s = tvm.create_schedule([Z.op])
 flist = tvm.lower(s, [X,Y,Z])
 flist = [flist]
 
-#print(flist[0].body)
+# print(flist[0].body)
+# def callback(stmt):
+#     if isinstance(stmt, tvm.expr.Load):
+#         print(stmt)
+# tvm.ir_pass.PostOrderVisit(flist[0].body, callback)
 #def callback(stmt):
     #if isinstance(stmt, tvm.expr.Call):
         #print(stmt.name + " " + stmt.dtype)
